@@ -36,30 +36,27 @@ function App() {
         <h1 className='font-bold text-5xl'>Random Password Generator</h1>
         <p className='hidden sm:inline'>Create strong and secure passwords to keep your account safe online</p>
       </div>
-
-      <div className='shadow-lg hover:xl h-96 flex flex-col justify-center'>
-
-        <input
-          className='w-2/5 h-12 border rounded-3xl px-4 mx-40 shadow-md'
-          type="text"
-          value={password}
-          placeholder="Password"
-          readOnly
-        />
-      
-      
-
-        <input
-          className=''
-          type = "range"
-          min={6}
-          max={50}
-          value = {length}
-          onChange={(e) => {setLength(e.target.value)}}>
-        </input>
-        <label>Length: {length}</label>
-
-        <br></br>
+      <div className='shadow-lg hover:xl h-96 flex flex-col justify-center items-center gap-2'>
+        <div className='w-2/5 h-14 border rounded-3xl shadow-inner shadow-md'>
+          <input
+            className='w-full my-4 px-6'
+            type="text"
+            value={password}
+            placeholder="Password"
+            readOnly
+          />
+        </div>
+        <div className='flex justify-center mt-8 gap-8'>
+          <input
+            className='w-96 h-3 mt-2 bg-gray-200 rounded-lg appearance-none cursor-pointer'
+            type = "range"
+            min={6}
+            max={50}
+            value = {length}
+            onChange={(e) => {setLength(e.target.value)}} 
+          />
+          <label className='text-xl'>Length: {length}</label>
+        </div>
 
         <input
           type = "checkbox"
@@ -67,8 +64,6 @@ function App() {
           onChange={() => {setIsNumber(!isNumber)}}>
         </input>
         <label>Number</label>
-
-        <br></br>
 
         <input
           type = "checkbox"
